@@ -1,16 +1,15 @@
-# Start with a base image containing Java runtime
+#
+# Build stage
+#
+FROM maven:3.6.0-jdk-11-slim AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+
+#
+# Package stage
+#
 FROM openjdk:8-jdk-alpine
-
-# Add Maintainer Info
-LABEL maintainer="freitasallan@gmail.com"
-
-# Add the service itself
-ARG JAR_FILE="Resume-1.0-SNAPSHOT.jar"
-RUN apk add maven
-WORKDIR /app
-COPY . /app/
-RUN mvn clean install -U
-WORKDIR /app
-COPY ./${JAR_FILE} /usr/share/${JAR_FILE}
-
-ENTRYPOINT ["java", "-jar", "/usr/share/Resume-1.0-SNAPSHOT.jar"]
+COPY --from=build /home/app/target/Resume-1.0-SNAPSHOT.jar /usr/local/lib/Resume.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/usr/local/lib/Resume.jar"]
