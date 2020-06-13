@@ -9,7 +9,7 @@ ARG JAR_FILE="Resume-1.0-SNAPSHOT.jar"
 RUN apk add maven
 WORKDIR /app
 COPY . /app/
-RUN mvn -f /app/pom.xml clean install -DskipTests
+RUN mvn clean install -U
 WORKDIR /app
 COPY ./${JAR_FILE} /usr/share/${JAR_FILE}
 
