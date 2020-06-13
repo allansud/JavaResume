@@ -1,13 +1,13 @@
 package br.com.resume;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@RestController
+@Controller
 public class HelloController {
 
-    @RequestMapping("/")
-    String hello() {
-        return "Hello World!";
+    @GetMapping("/")
+    String index() {
+        return "index";
     }
 }
