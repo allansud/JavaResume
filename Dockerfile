@@ -4,8 +4,13 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 # Add Maintainer Info
 LABEL maintainer="freitasallan@gmail.com"
 
-# copy the packaged jar file into our docker image
-COPY target/Resume-1.0-SNAPSHOT /demo.jar
- 
-# set the startup command to execute the jar
-CMD ["java", "-jar", "/demo.jar"]
+# Add the service itself
+ARG JAR_FILE="myservice-1.0.0.jar"
+RUN apk add maven
+WORKDIR /app
+COPY . /app/
+RUN mvn -f /app/pom.xml clean install -DskipTests
+WORKDIR /app
+COPY target/${JAR_FILE} /usr/share/${JAR_FILE}
+
+ENTRYPOINT ["java", "-jar", "/usr/share/myservice-1.0.0.jar"]
