@@ -9,7 +9,7 @@ RUN mvn -f /home/app/pom.xml clean package
 #
 # Package stage
 #
-FROM openjdk:11-jdk-alpine
+FROM openjdk:11-jdk-slim
 COPY --from=build /home/app/target/Resume-1.0-SNAPSHOT.jar /usr/local/lib/Resume.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/Resume.jar"]
