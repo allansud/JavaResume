@@ -1,3 +1,3 @@
-br\com\resume\configuration\Internationalization.class
-br\com\resume\HelloController.class
+br\com\resume\configuration\WebConfig.class
 br\com\resume\App.class
+br\com\resume\HelloController.class
