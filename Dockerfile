@@ -11,6 +11,6 @@ WORKDIR /app
 COPY . /app/
 RUN mvn -f /app/pom.xml clean install -DskipTests
 WORKDIR /app
-COPY target/${JAR_FILE} /usr/share/${JAR_FILE}
+COPY ./${JAR_FILE} /usr/share/${JAR_FILE}
 
 ENTRYPOINT ["java", "-jar", "/usr/share/Resume-1.0-SNAPSHOT.jar"]
