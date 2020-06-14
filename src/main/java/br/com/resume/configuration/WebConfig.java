@@ -14,6 +14,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import javax.servlet.Filter;
+
 @EnableWebMvc
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
@@ -46,20 +48,6 @@ public class WebConfig implements WebMvcConfigurer {
                        "classpath:/static/fonts/");
    }
    
-   // @Bean
-	// public SpringTemplateEngine templateEngine() {
-	// 	SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-	// 	templateEngine.setTemplateResolver(templateResolver());
-	// 	return templateEngine;
-   // }
-   
-   // @Bean
-	// public ThymeleafViewResolver viewResolver() {
-	// 	ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-	// 	viewResolver.setTemplateEngine(templateEngine());
-	// 	return viewResolver;
-	// }
-   
    @Bean
    public LocaleResolver localeResolver() {
       SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
@@ -81,9 +69,9 @@ public class WebConfig implements WebMvcConfigurer {
 
    @Bean("messageSource")
    public MessageSource messageSource() {
-    ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-    messageSource.setBasenames("lang/messages");
-    messageSource.setDefaultEncoding("UTF-8");
-    return messageSource;
+      ResourceBundleMessageSource resourceBundleMessageSource = new ResourceBundleMessageSource();
+      resourceBundleMessageSource.setBasename("messages");
+      resourceBundleMessageSource.setDefaultEncoding("UTF-8");
+      return resourceBundleMessageSource;
    }
 }

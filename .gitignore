@@ -28,3 +28,7 @@ bin
 .classpath
 .vscode
 .factorypath
+
+#Intellij
+*.iml
+.idea
