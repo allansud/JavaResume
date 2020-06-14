@@ -77,7 +77,7 @@
                 Parque Mandaqui · Zona Norte, São Paulo · Skype allansud ·
                 <a href="mailto:allan@agfapp.com">allan@agfapp.com</a>
             </div>
-            <p class="lead mb-5">
+            <p class="lead mb-5" th:text = "#{description.text}">
                 In the last 6 years I have worked with .NET development and execution of business applications.
                 Excellent communication skills working directly with coworkers and clientele to identify business
                 objectives and establish requirements.
@@ -101,7 +101,7 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
         <div class="w-100">
-            <h2 class="mb-5">Experience</h2>
+            <h2 class="mb-5" th:text="#{experience.text}">Experience</h2>
 
             <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="resume-content">
@@ -182,7 +182,7 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
         <div class="w-100">
-            <h2 class="mb-5">Education</h2>
+            <h2 class="mb-5" th:text="#{education.text}">Education</h2>
 
             <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="resume-content">
@@ -215,7 +215,7 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
         <div class="w-100">
-            <h2 class="mb-5">Skills</h2>
+            <h2 class="mb-5"th:text="#{skills.text}">Skills</h2>
 
             <div class="subheading mb-3">Programming Languages &amp; Tools</div>
             <ul class="list-inline dev-icons">
@@ -288,8 +288,8 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
         <div class="w-100">
-            <h2 class="mb-5">Interests</h2>
-            <p>
+            <h2 class="mb-5" th:text="#{interests.text}">Interests</h2>
+            <p th:text = "#{interests.description}">
                 When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows,
                 and I spend a large amount of my free time exploring the latest technology advancements in the software
                 development world.
@@ -304,7 +304,7 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
         <div class="w-100">
-            <h2 class="mb-5">Awards &amp; Certifications</h2>
+            <h2 class="mb-5" th:text = "#{awards.text}">Awards &amp; Certifications</h2>
             <ul class="fa-ul mb-0">
                 <li>
                     <i class="fa-li fa fa-trophy text-warning"></i>
